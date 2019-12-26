@@ -1,0 +1,211 @@
+<div class="container">
+	<div class="left">
+		<div class="top">
+			<div class="containerdiv">
+				<img class="avatar" ng-src="{{link}}"> <img
+					class="cornerimage" ng-src="{{user_status_img}}" alt=""
+					ng-init="user_status_img ='assets/icons/status_online.png'">
+			</div>
+			<span class="name" ng-bind-html="username | unsafe"></span>
+			<div class="dropdown profile_edit" style="float: right;"
+				id="status_dropdown">
+				<span class="glyphicon glyphicon-pencil" aria-hidden="true"
+					style="cursor: pointer;"></span>
+				<div class="dropdown-content" id="status_dropdown_content">
+					<a ng-click="change_status()"><span><img
+							src='assets/icons/status_online.png'></span> Online </a> <a
+						ng-click="change_status('away')"><span><img
+							src='assets/icons/status_away.png'></span> Away </a> <a
+						ng-click="change_status('dnd')"><span><img
+							src='assets/icons/status_busy.png'></span> Do not disturb </a> <a
+						ng-click="change_status('xa')"><span><img
+							src='assets/icons/status_offline.png'></span> Invisible </a> <a
+						ng-click="change_status('xa')"><span><img
+							src='assets/icons/status_offline.png'></span> Offline </a>
+
+				</div>
+			</div>
+			<span class="preview" ng-bind-html="profile_message | unsafe"></span>
+		</div>
+		<hr class="style13">
+		<div id="contacts">
+			<!-- contacts will be added dynamically here -->
+		</div>
+	</div>
+	<div class="right">
+		<div class="top">
+			<span>To: <span class="name">Dog Woofson</span></span>
+			<div class="dropdown" style="float: right;">
+				<span class="glyphicon glyphicon-option-vertical" aria-hidden="true"
+					style="cursor: pointer;"></span>
+				<div class="dropdown-content">
+					<a> <span class="glyphicon glyphicon-info-sign"
+						aria-hidden="true"></span> About Us
+					</a> <a> <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+						Settings
+					</a> <a href="#logout" ng-click="disconnect()"> <span
+						class="glyphicon glyphicon-user" aria-hidden="true"></span> Logout
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="chat-container">
+			<div id="right_chat_div"></div>
+			<div id="right_chat_smiley_div" ng-show="IsSmileyDivVisible"
+				class="smiley">
+				<!-- Nav tabs -->
+				<div class="card">
+					<ul class="nav nav-tabs" role="tablist">
+						<li ng-class="{ active: isSet(1) }"><a href="javascript:;"
+							ng-click="setTab(1)" aria-controls="home" role="tab"
+							data-toggle="tab"> <span class="emoji emoji_smile"
+								title=":smile:" aria-hidden="true"></span>
+						</a></li>
+						<li ng-class="{ active: isSet(2) }"><a href="javascript:;"
+							ng-click="setTab(2)" aria-controls="home" role="tab"
+							data-toggle="tab"> <span class="emoji emoji_fire"
+								title=":smile:" aria-hidden="true"></span>
+						</a></li>
+						<li ng-class="{ active: isSet(3) }"><a href="javascript:;"
+							ng-click="setTab(3)" aria-controls="home" role="tab"
+							data-toggle="tab"> <span class="emoji emoji_smile"
+								title=":smile:" aria-hidden="true"></span>
+						</a></li>
+						<li ng-class="{ active: isSet(4) }"><a href="javascript:;"
+							ng-click="setTab(4)" aria-controls="home" role="tab"
+							data-toggle="tab"> <span class="emoji emoji_smile"
+								title=":smile:" aria-hidden="true"></span>
+						</a></li>
+						<li ng-class="{ active: isSet(5) }"><a href="javascript:;"
+							ng-click="setTab(5)" aria-controls="home" role="tab"
+							data-toggle="tab"> <span class="emoji emoji_smile"
+								title=":smile:" aria-hidden="true"></span>
+						</a></li>
+						<li ng-class="{ active: isSet(6) }"><a href="javascript:;"
+							ng-click="setTab(6)" aria-controls="home" role="tab"
+							data-toggle="tab"> <span class="emoji emoji_smile"
+								title=":smile:" aria-hidden="true"></span>
+						</a></li>
+					</ul>
+					<!-- Tab panes -->
+					<div class="tab-content tab-scroll">
+						<div role="tabpanel" ng-class="{ active: isSet(1) }"
+							class="tab-pane active" ng-show="isSet(1)">
+							<ul>
+								<li ng-repeat="smile in smileEmojis"
+									ng-bind-html="smile | emoji"></li>
+							</ul>
+						</div>
+						<div role="tabpanel" ng-class="{ active: isSet(2) }"
+							class="tab-pane" ng-show="isSet(2)">
+							<ul>
+								<li ng-repeat="heart in heartEmojis"
+									ng-bind-html="heart | emoji"></li>
+							</ul>
+						</div>
+						<div role="tabpanel" ng-class="{ active: isSet(3) }"
+							class="tab-pane" ng-show="isSet(3)">
+							<ul>
+								<li ng-repeat="house in houseEmojis"
+									ng-bind-html="house | emoji"></li>
+							</ul>
+						</div>
+						<div role="tabpanel" ng-class="{ active: isSet(4) }"
+							class="tab-pane" ng-show="isSet(4)">
+							<ul>
+								<li ng-repeat="animal in animalsEmojis"
+									ng-bind-html="animal | emoji"></li>
+							</ul>
+						</div>
+						<div role="tabpanel" ng-class="{ active: isSet(5) }"
+							class="tab-pane" ng-show="isSet(5)">
+							<ul>
+								<li ng-repeat="animal in animalsEmojis"
+									ng-bind-html="animal | emoji"></li>
+							</ul>
+						</div>
+						<div role="tabpanel" ng-class="{ active: isSet(6) }"
+							class="tab-pane" ng-show="isSet(6)">
+							<ul>
+								<li ng-repeat="animal in animalsEmojis"
+									ng-bind-html="animal | emoji"></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="write">
+			<div class="kc_fab_wrapper"></div>
+			<a href="javascript:;" class="write-link attach"></a> <input
+				type="text" ng-model="message.value" /> <a href="javascript:;"
+				class="write-link smiley" ng-click="ToggleSmileyDiv()"></a> <a
+				href="javascript:;" class="write-link send"
+				ng-click="sendMessage(message)"></a>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#status_dropdown").click(function() {
+			if ($('#status_dropdown_content').is(':visible')) {
+				$("#status_dropdown_content").slideUp();
+			} else {
+				$("#status_dropdown_content").slideDown();
+			}
+		});
+	});
+
+	$(document).on('mousedown', 'li.person', function() {
+		if ($(this).hasClass('.active')) {
+			return false;
+		} else {
+			var findChat = $(this).attr('data-chat');
+			var personName = $(this).find('.name').text();
+			$('.right .top .name').html(personName);
+			//call angular function to load previous conversation
+			angular.element('#login_controller').scope().loadConversations(findChat);
+			angular.element('#login_controller').scope().$apply();
+			
+			$('.chat').removeClass('active-chat scroll-container');
+			$('.left .person').removeClass('active');
+			$(this).addClass('active');
+			$('.chat[data-chat = ' + findChat + ']').addClass('active-chat scroll-container');
+			
+			//get id from class for scroll chat to bottom
+			var Id = $('.right .chat').attr('id');
+			//get div element by id to scroll chat to bottom
+			var objDiv = document.getElementById(Id);
+			objDiv.scrollTop = objDiv.scrollHeight;
+		}
+	});
+	 $(document).ready(function(){
+         var links = [
+             {
+                 "bgcolor":"#9A9A9A",
+                 "icon":"+"
+             },
+             {
+                 "url":"javascript:;",
+                 "bgcolor":"#00B0FF",
+                 "color":"#fffff",
+                 "icon":"<i class='fa fa-video-camera'></i>",
+                 /* "target":"_blank" */
+             },
+             {
+                 "url":"javascript:;",
+                 "bgcolor":"#00B0FF",
+                 "color":"white",
+                 "icon":"<i class='fa fa-music'></i>"
+             },
+             {
+                 "url":"javascript:;",
+                 "bgcolor":"#00B0FF",
+                 "color":"white",
+                 "icon":"<i class='fa fa-picture-o'></i>"
+             }
+         ]
+         $('.kc_fab_wrapper').kc_fab(links);
+     })
+</script>

@@ -1,0 +1,19 @@
+<div class="modal-dialog">
+<div class="loginmodal-container" ng-controller="LoginController">
+	<div class="progress" ng-show="show">
+		<div class="progress-bar progress-bar-success" role="progressbar"
+			style="width: 100%" id='log'></div>
+	</div>
+	<br>
+	<!-- <div id='log'></div> -->
+	<form ng-submit="connect(user)">
+		<input type="text" name="user" placeholder="mobile" ng-model="user.mobile">
+		<input type="password" name="pass" placeholder="Password" ng-model="user.password">
+		<input type="submit" name="login" id="submit" class="login loginmodal-submit" value="Login">
+	</form>
+
+	<div class="login-help">
+		<a href="#register">Register</a> - <a href="#resetpassword">Forgot Password</a>
+	</div>
+</div>
+</div>

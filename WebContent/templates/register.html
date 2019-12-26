@@ -1,0 +1,17 @@
+<div class="modal-dialog">
+<div class="loginmodal-container">
+	<br>
+	<form ng-controller="LoginController" ng-submit="register(user)">
+		<input type="text" name="mobile" placeholder="mobile" ng-model="user.mobile">
+		<input type="password" name="password" placeholder="Password" ng-model="user.password">
+		<select name="country" ng-model="user.country.name" 
+			ng-options="country.name as country.name for country in countries">
+		</select>
+		<input type="submit" id="submit" name="submit" class="login loginmodal-submit" value="Register">
+	</form>
+
+	<div class="login-help">
+		<a href="#login">Login</a> - <a href="#resetpassword">Forgot Password</a>
+	</div>
+</div>
+</div>
